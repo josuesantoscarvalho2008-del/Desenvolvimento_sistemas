@@ -12,7 +12,7 @@ public class ListaConvidados {
 		int opcao;
 		String convidado;
 		int posicao;
-		
+		String novoNome;
 		do {
 			System.out.println("Escolha a opição: \n 1 - Adicionar convidad 2 - Alterar convidado 3 - Remover convidado 4 - Procurar convidado 5 - Exibir convidados 6 - Encerra");
 			opcao = Integer.parseInt(leia.nextLine());
@@ -21,22 +21,36 @@ public class ListaConvidados {
 			case 1:
 				System.out.println("Digite o nome do convidado: ");
 				convidado = leia.nextLine();
-				convidados.add(convidado);
+				System.out.println(convidados.add(convidado));
 				break;
 			case 2:
-				System.out.println("Digite a posição do convidado que quer alterar e informe o novo nome: ");
-				do {
+				System.out.println("Digite a posição do convidado: ");
+				
 					posicao = Integer.parseInt(leia.nextLine());
-				}while(posicao >= 0 || posicao < convidados.size());
-				convidados.set(posicao, leia.nextLine());
+				
+				System.out.println("Informe o novo nome do convidado: ");
+				novoNome = leia.nextLine();
+				System.out.println(convidados.set(posicao, novoNome));
 				break;
 			case 3:
 				System.out.println("Informe o nome do convidado que quer remover: ");
-				convidados.contains(leia.nextLine());
+				System.out.println(convidados.contains(leia.nextLine()));
 				break;
 			case 4:
 				System.out.println("Informe o nome do convidado que deseja procurar: ");
 				System.out.println(convidados.indexOf(leia.nextLine()));
+				break;
+			case 5:
+				for(String nome: convidados) {
+					System.out.println(nome);
+				}
+				break;
+			case 6:
+				System.out.println("Sistema encerrado");
+				break;
+				default:
+					System.out.println("Opção invalida.");
+					break;
 				
 			}
 			
